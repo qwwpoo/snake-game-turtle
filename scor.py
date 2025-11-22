@@ -1,5 +1,4 @@
-from turtle import Turtle 
-from snake import Snake
+from turtle import Turtle
 
 class Score(Turtle):
  def __init__(self):
@@ -12,14 +11,18 @@ class Score(Turtle):
   self.update()
   
  def update(self): 
+  self.clear()
   self.write('score:{}'.format(self.score),align = "center" , font = ('Arial',24,'normal'))
   
- def more(self):
-  self.clear()
-  self.score +=1
+ def more(self,):
+  self.score += 1
+  self.update()
+  
+ def more_ex(self,point):
+  self.score += point
   self.update()
     
  def game_over(self):
-  self.screen.bgcolor('darkred')
+  self.getscreen().bgcolor('darkred')
   self.goto(0,0)
   self.write('game over \n لقد خسرت\n high score:2600\nfinal Score: {}'.format(self.score),align = 'center',font = ('Arial',24,'normal'))
